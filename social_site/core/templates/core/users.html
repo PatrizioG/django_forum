@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ block.super }} | {{ user }}{% endblock title %}
+
+{% block content %}
+    <h2>Lista Utenti</h2>
+<hr>
+{% for utente in object_list %}
+    <p>
+        <a href="{% url 'user_profile' username=utente.username%}">
+            <strong>@{{ utente.username }}</strong>
+        </a>
+    </p>
+{% endfor%}
+
+{% endblock content %}
